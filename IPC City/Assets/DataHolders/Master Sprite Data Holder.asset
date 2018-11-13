@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd4b9f053236f794d8e6536d98ab93e2, type: 3}
+  m_Name: Master Sprite Data Holder
+  m_EditorClassIdentifier: 
+  maleHuman: {fileID: 11400000, guid: c95b8b06e07b21c4d828cb0217a51f0e, type: 2}
+  femaleHuman: {fileID: 11400000, guid: b1651bd378653d748b7add28a5e8ef9c, type: 2}
+  maleOrc: {fileID: 11400000, guid: 411ca4787d191224dab7fae5245f06a2, type: 2}
+  femaleOrc: {fileID: 11400000, guid: c6a1d22123714404e9f99d40d82a8892, type: 2}
+  maleHair: {fileID: 11400000, guid: 4fec0075809fad04e97650feac12e9ca, type: 2}
+  femaleHair: {fileID: 11400000, guid: c93f8d630f635ae449735fb2c89d8101, type: 2}
+  maleHumanClothes: {fileID: 11400000, guid: 9469cf774eb7a5b4e94b1b2bef62432e, type: 2}
+  femaleHumanClothes: {fileID: 11400000, guid: f9b8789a61834af4cafba3032e874f7a, type: 2}
+  maleElfClothes: {fileID: 11400000, guid: c5c32bf34baa3194c9b5bfe2be65ca25, type: 2}
+  femaleElfClothes: {fileID: 11400000, guid: 7462e82180fd7d643ae460e6315b7cb8, type: 2}
+  maleDwarfClothes: {fileID: 11400000, guid: e59dd7b10cb50414aa75dbb29514895d, type: 2}
+  femaleDwarfClothes: {fileID: 11400000, guid: 0b30b80ada77bea4d9f959d77a95c4b8, type: 2}
+  maleOrcClothes: {fileID: 0}
+  femaleOrcClothes: {fileID: 11400000, guid: bb937058daca6c943b3ee7bf2d7f6ccb, type: 2}

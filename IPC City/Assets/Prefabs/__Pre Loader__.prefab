@@ -1,0 +1,185 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1682058705799740}
+  m_IsPrefabAsset: 1
+--- !u!1 &1682058705799740
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4280649440061182}
+  m_Layer: 0
+  m_Name: __Pre Loader__
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1962314025572694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4963705250743646}
+  - component: {fileID: 114452611179718568}
+  - component: {fileID: 114913925785243052}
+  - component: {fileID: 114096369770427956}
+  - component: {fileID: 114481408937880896}
+  - component: {fileID: 114392662745966964}
+  - component: {fileID: 114479069321900804}
+  m_Layer: 0
+  m_Name: Initializer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4280649440061182
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1682058705799740}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1125.2523, y: 844.6073, z: -10.293924}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4963705250743646}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4963705250743646
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962314025572694}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -136.25806, y: -118.976074, z: 1.7939243}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4280649440061182}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114096369770427956
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962314025572694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 746ae3cb826b4ed49b33a6a61e46d4e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadCheck: {fileID: 0}
+  splashScreen: {fileID: 0}
+  dataLoadingFill: {fileID: 0}
+  dataLoadingText: {fileID: 0}
+--- !u!114 &114392662745966964
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962314025572694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5012ac94b222704eb1858ca70b9c4b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultIcons:
+  - {fileID: 2800000, guid: 8a85491f362fdcb4794760a51892cf71, type: 3}
+  scenePaths:
+  - Assets/Scenes/Scene1.unity
+  locationPathName: Builds/IPC_City.exe
+  applicationIdentifier: com.Playchemy.IPC_City
+  productName: IPC City
+  version: 1.1
+  defaultInterfaceOrientation: 1
+  buildTarget: 0
+--- !u!114 &114452611179718568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962314025572694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96c784b618ea3e41adb92ed71a53bb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignoreChunkSize: 1
+  chunkSize: 250
+  totalNumOfIpcs: 0
+  ipcList: []
+  walletList: []
+  slaveList: []
+  slave: {fileID: 1561025440320316, guid: b07bf721c54ce844cae1dcbc9a638a8f, type: 2}
+--- !u!114 &114479069321900804
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962314025572694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2b82d8451616ab4cbc48f842efce964, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  desktopBuild: 1
+--- !u!114 &114481408937880896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962314025572694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f10143ea7a9d544aa41e03148471351, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ignorePlayerPrefs: 1
+  ActiveSystemLoadType: 1
+  onDemandSystem: {fileID: 0}
+  cacheSystem: {fileID: 0}
+--- !u!114 &114913925785243052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1962314025572694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4540ac904c232a7489da8c2e2139ddf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TokensLoaded: 0
+  OneIPCLoaded: 0
+  IPCCountLoaded: 0
+  inputIPCID: 0
+  inputWalletID: 
+  ipcStorage:
+    m_name: 
+    m_owner: 
+    m_timeOfBirth: 0
+    m_xp: 0
+    m_dna: 
+    m_attributes: 
+    m_price: 0
+    m_beneficiaryAddress: 
+    m_beneficiaryPrice: 0
+  ownedIpcsIds: 
+  ipcCount: 0

@@ -1,0 +1,14 @@
+﻿Changes V9/7/2018
+- Pre-Load option is fully implemented
+- Pre-Load chunk loading is implemented (Not active at the moment)
+- Added option to switch between load methods in Settings
+- Public address fonts have been changed to be more readable
+- Public addresses are copied upon pressing them in character screen
+- Art changes in character screen
+- New About menu is added in Setting menu
+- QR Code feature is improved with error catching
+- QR Code no longer crashes after reading an empty address
+- Recently added wallet list bug fixed
+- Page number bug fixed
+- Single IPC search bug fixed
+- Single IPC search swipe bug fixed

@@ -1,0 +1,255 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef9e55eefba3fc43a8e850d59ec29e1, type: 3}
+  m_Name: Interpreter Data Backup
+  m_EditorClassIdentifier: 
+  PercentOccurenceByRace: 00000000170000001f0000001700000017000000
+  PercentOccurenceByElfSubrace: 00000000140000001e0000001e0000000f00000005000000
+  nightElfSkinColor:
+  - White
+  - Blue-Grey
+  - Midnight Blue
+  woodElfSkinColor:
+  - Pale
+  - Beige
+  - Golden
+  highElfSkinColor:
+  - Pale
+  - Beige
+  - Tan
+  sunElfSkinColor:
+  - Tan
+  - Light Brown
+  - Brown
+  darkElfSkinColor:
+  - Obsidian
+  nightElfHairColor:
+  - 
+  - 
+  - 
+  woodElfHairColor:
+  - Light Brown
+  - Brown
+  - Red
+  highElfHairColor:
+  - Grey
+  - Brown
+  - Black
+  sunElfHairColor:
+  - Gold
+  - Red
+  - Brown
+  darkElfHairColor:
+  - White
+  nightElfEyeColor:
+  - Ice
+  - Greem
+  - Blue
+  - Purple
+  woodElfEyeColor:
+  - Blue
+  - Green
+  - Orange
+  highElfEyeColor:
+  - Green
+  - Orange
+  - Purple
+  sunElfEyeColor:
+  - Blue
+  - Green
+  - Orange
+  - Gold
+  darkElfEyeColor:
+  - Red
+  PercentOccurenceByHumanSubrace: 000000000a0000001e0000000f0000001e0000000f000000
+  atlanteanHumanSkinColor: []
+  nordicHumanSkinColor:
+  - Pale
+  - Beige
+  easternHumanSkinColor:
+  - Pale
+  - Beige
+  - Tan
+  coastalHumanSkinColor:
+  - Beige
+  - Tan
+  - Brown
+  southernHumanSkinColor:
+  - Light Brown
+  - Dark Brown
+  - Black
+  mythicalHumanSkinColor:
+  - White
+  atlanteanHumanHairColor: []
+  nordicHumanHairColor:
+  - Platinum
+  - Blonde
+  - Light Brown
+  - Red
+  easternHumanHairColor:
+  - White
+  - Grey
+  - Black
+  coastalHumanHairColor:
+  - Blonde
+  - Red
+  - Brown
+  - Black
+  southernHumanHairColor:
+  - White
+  - Grey
+  - Black
+  mythicalHumanHairColor:
+  - Black
+  atlanteanHumanEyeColor: []
+  nordicHumanEyeColor:
+  - Icy
+  - Blue
+  - Green
+  easternHumanEyeColor:
+  - Amber
+  - Brown
+  - Black
+  coastalHumanEyeColor:
+  - Blue
+  - Green
+  - Brown
+  southernHumanEyeColor:
+  - Green
+  - Brown
+  - Black
+  mythicalHumanEyeColor:
+  - Red
+  PercentOccurenceByDwarfSubrace: 000000000f000000320000000f0000000f00000005000000
+  quarryDwarfSkinColor:
+  - White
+  - Marbled White
+  - Marbled Black
+  mountainDwarfSkinColor:
+  - Pale
+  - Beige
+  - Tan
+  lumberDwarfSkinColor:
+  - Tan
+  - Light Brown
+  - Brown
+  hillDwarfSkinColor:
+  - Grey
+  - Brown
+  - Dark Brown
+  volcanoDwarfSkinColor:
+  - Grey
+  - Dark Grey
+  - Black
+  quarryDwarfHairColor:
+  - Blonde
+  - Light Brown
+  - Brown
+  mountainDwarfHairColor:
+  - Brown
+  - Dark Brown
+  - Black
+  lumberDwarfHairColor:
+  - Blonde
+  - Brown
+  - Black
+  hillDwarfHairColor:
+  - Brown
+  - Dark Brown
+  - Black
+  volcanoDwarfHairColor:
+  - Blue
+  - Blue-Black
+  - Black
+  quarryDwarfEyeColor:
+  - Amber
+  - Brown
+  - Black
+  mountainDwarfEyeColor:
+  - Blue
+  - Green
+  - Brown
+  lumberDwarfEyeColor:
+  - Green
+  - Amber
+  - Brown
+  hillDwarfEyeColor:
+  - Amber
+  - Brown
+  - Black
+  volcanoDwarfEyeColor:
+  - Grey
+  - Black
+  - Purple
+  PercentOccurenceByOrcSubrace: 000000000f0000000f000000320000000f00000005000000
+  ashOrcSkinColor:
+  - Grey with Red Warpaint
+  - Grey with Dark Red Warpaint
+  - Grey with Black Warpaint
+  sandOrcSkinColor:
+  - Pale
+  - Yellow
+  - Dark Yellow
+  plainsOrcSkinColor:
+  - Pale Green
+  - Green
+  - Forest Green
+  swampOrcSkinColor:
+  - Forest Green
+  - Blue-Green
+  - Dark Blue-Green
+  bloodOrcSkinColor:
+  - Red
+  - Dark Red
+  ashOrcHairColor:
+  - White
+  - Brown
+  - Black
+  sandOrcHairColor:
+  - White
+  - Brown
+  - Black
+  plainsOrcHairColor:
+  - Red
+  - Brown
+  - Black
+  swampOrcHairColor:
+  - Auburn
+  - Dark Brown
+  - Black
+  bloodOrcHairColor:
+  - White
+  - Brown
+  - Black
+  ashOrcEyeColor:
+  - Gold
+  - Brown
+  - Black
+  sandOrcEyeColor:
+  - Gold
+  - Brown
+  - Black
+  plainsOrcEyeColor:
+  - Gold
+  - Brown
+  - Black
+  swampOrcEyeColor:
+  - Gold
+  - Brown
+  - Black
+  bloodOrcEyeColor:
+  - Light Yellow
+  - Yellow
+  - Amber
+  MalePercentageByRace: 0000000000000000000000000000000000000000
+  leftHandednessPercentage: 15
+  leftHandednessPercentageByRace: 0000000032000000320000003200000032000000
+  baseHeightByRace: 0000000032000000320000003200000032000000
