@@ -213,10 +213,10 @@
     <None Include="Assets\Demigiant\DemiLib\Core\DemiLib.xml" />
     <None Include="Assets\Demigiant\readme_DOTweenPro.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -417,58 +417,58 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.5f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="DemiLib">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Demigiant/DemiLib/Core/DemiLib.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTweenPro">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Demigiant/DOTweenPro/DOTweenPro.dll</HintPath>
     </Reference>
     <Reference Include="zxing.unity">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/IPCExplorer/UnityBarcodeScanner/Scripts/zxing.unity.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/IPCExplorer/UnityBarcodeScanner/Scripts/zxing.unity.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/BouncyCastle.Crypto.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="Nethereum.ABI">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/Nethereum.ABI.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/Nethereum.ABI.dll</HintPath>
     </Reference>
     <Reference Include="Nethereum.Contracts">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/Nethereum.Contracts.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/Nethereum.Contracts.dll</HintPath>
     </Reference>
     <Reference Include="Nethereum.Hex">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/Nethereum.Hex.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/Nethereum.Hex.dll</HintPath>
     </Reference>
     <Reference Include="Nethereum.JsonRpc.Client">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/Nethereum.JsonRpc.Client.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/Nethereum.JsonRpc.Client.dll</HintPath>
     </Reference>
     <Reference Include="Nethereum.RLP">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/Nethereum.RLP.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/Nethereum.RLP.dll</HintPath>
     </Reference>
     <Reference Include="Nethereum.RPC">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/Nethereum.RPC.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/Nethereum.RPC.dll</HintPath>
     </Reference>
     <Reference Include="Nethereum.Signer">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/Nethereum.Signer.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/Nethereum.Signer.dll</HintPath>
     </Reference>
     <Reference Include="Nethereum.Unity">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/Nethereum.Unity.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/Nethereum.Unity.dll</HintPath>
     </Reference>
     <Reference Include="Nethereum.Util">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/Nethereum.Util.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/Nethereum.Util.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System.Threading">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/Plugins/System.Threading.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/Plugins/System.Threading.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-2017.1-1.0.56-Editor">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.1-1.0.56-Editor.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.1-1.0.56-Editor.dll</HintPath>
     </Reference>
     <Reference Include="TextMeshPro-2017.1-1.0.56-Runtime">
-      <HintPath>C:/Users/Playchemy Inc/Desktop/Projects/IPC City/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.1-1.0.56-Runtime.dll</HintPath>
+      <HintPath>C:/Users/Playchemy Inc/Desktop/Git Projects/ipc-unity/IPC City/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-2017.1-1.0.56-Runtime.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Playchemy Inc/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
