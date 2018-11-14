@@ -15,23 +15,28 @@ public class Ipc_Load_Check : MonoBehaviour
     void Start () 
 	{
         initializer = GetComponent<DataInitializer>();
-        initializer.onDataLoadFinished += CheckLoaded;
+        //initializer.onDataLoadFinished += CheckLoaded;
         //loadCheck.SetActive(true);
         RunSplashScreen();
 
     }
 
-    void CheckLoaded()
+    public void CheckLoaded()
     {
         //RunSplashScreen();
+        FindObjectOfType<IpcSpawnMenu>().CreateALL();
+        splashScreen.SetActive(false);
         loadCheck.SetActive(false);
 
     }
+
+
 
     private void RunSplashScreen()
     {
         splashScreen.SetActive(true);
 
+        /*
         if (SystemManager.Instance.ActiveSystemLoadType == SystemManager.SystemLoadType.OnDemand)
         {
             dataLoadingFill.transform.parent.GetComponent<Image>().CrossFadeAlpha(0f, 0.1f, true);
@@ -46,5 +51,6 @@ public class Ipc_Load_Check : MonoBehaviour
             dataLoadingText.CrossFadeAlpha(1f, 0.1f, true);
             //ipcLoadingText.CrossFadeAlpha(1f, 0.1f, true);
         }
+        */
     }
 }

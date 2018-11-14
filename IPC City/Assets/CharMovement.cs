@@ -21,6 +21,10 @@ public class CharMovement : MonoBehaviour
 
     public float pathfindRadius = 25f;
 
+    public bool offScreen;
+
+    bool disabled = false;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -40,8 +44,44 @@ public class CharMovement : MonoBehaviour
         return finalPosition;
     }
 
+    private void OnBecameVisible()
+    {
+        EnableIPC();
+    }
+
+    private void OnBecameInvisible()
+    {
+        offScreen = true;
+    }
+
+    public void EnableIPC()
+    {
+        offScreen = false;
+        agent.enabled = true;
+        FindNewTarget();
+        GetComponent<SpriteHandler>().enabled = true;
+        anim.enabled = true;
+        disabled = false;
+
+    }
+
+    public void DisableIPC()
+    {
+        agent.ResetPath();
+        agent.enabled = false;
+        GetComponent<SpriteHandler>().enabled = false;
+        anim.enabled = false;
+
+        disabled = true;
+    }
+
     public void FindNewTarget()
     {
+        if(offScreen)
+        {
+            return;
+        }
+
         if (!canFindNewPos)
             return;
 
@@ -56,7 +96,10 @@ public class CharMovement : MonoBehaviour
         NavMeshHit hit;
         NavMesh.SamplePosition(targetLoc, out hit, 10f, 1);
         Vector3 destination = hit.position;
-        agent.SetDestination(destination);
+
+        GoToTarget(destination);
+
+        //agent.SetDestination(destination);
 
         targetLoc = destination;
 
@@ -125,16 +168,32 @@ public class CharMovement : MonoBehaviour
 
     void Update()
     {
+        if(disabled)
+        {
+            return;
+        }
+
         float dist = agent.remainingDistance;
         if (dist != Mathf.Infinity && agent.pathStatus == NavMeshPathStatus.PathComplete && agent.remainingDistance < 2 && arrived == false)
         {
             arrived = true;
             anim.SetBool("hasStopped", true);
 
-            if (!manualControl)
+            if(offScreen)
+            {
+                DisableIPC();
+            }
+
+            if (!offScreen && !manualControl)
             {
                 Invoke("FindNewTarget", Random.Range(2, 6));
             }
+
+        }
+
+        if(offScreen)
+        {
+            return;
         }
 
         Vector2 vel = new Vector2(agent.velocity.x, agent.velocity.z).normalized;
@@ -162,5 +221,19 @@ public class CharMovement : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.DrawSphere(targetLoc, 5);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (offScreen)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(transform.position, 2f);
+        }
+        else
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawSphere(transform.position, 2f);
+        }
     }
 }

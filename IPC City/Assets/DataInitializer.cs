@@ -150,9 +150,15 @@ public class DataInitializer : MonoBehaviour
         if (onDataLoadFinished != null)
         {
             onDataLoadFinished.Invoke();
+            print("dataloadcalled");
         }
 
         Debug.Log("All Wallets Are Succesfully Retrieved! It took: " + Time.timeSinceLevelLoad);
+
+        if (FindObjectOfType<Ipc_Load_Check>())
+        {
+            FindObjectOfType<Ipc_Load_Check>().CheckLoaded();
+        }
 
         isGenerating = false;
     }

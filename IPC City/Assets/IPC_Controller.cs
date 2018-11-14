@@ -66,6 +66,7 @@ public class IPC_Controller : MonoBehaviour
     public void SelectIPC(GameObject chosenIPC)
     {
         OnIPCSelected(chosenIPC);
+        chosenIPC.GetComponent<CharMovement>().EnableIPC();
     }
 
     void MoveToDestination () 

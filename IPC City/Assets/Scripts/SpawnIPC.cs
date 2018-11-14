@@ -31,8 +31,8 @@ public class SpawnIPC : MonoBehaviour {
     [ContextMenu("CreateSingle")]
     public void CreateSingleIPC(int ipcNum)
     {
-        float randX = Random.Range(60, -60);
-        float randY = Random.Range(30, -30);
+        float randX = Random.Range(280, -60);
+        float randY = Random.Range(96, -234);
         Vector3 pos = new Vector3(randX, 1, randY);
 
         GameObject newIpc = Instantiate(prefab, pos, Quaternion.identity) as GameObject;
@@ -65,10 +65,17 @@ public class SpawnIPC : MonoBehaviour {
 
     public void CreateAll()
     {
-        for (int i = 0; i < DataInitializer.Instance.totalNumOfIpcs; i++)
+
+        // Spawning only 2000 for now, update later
+        for (int i = 0; i < 2000; i++)
         { 
             CreateSingleIPC(i);
         }
+
+        //for (int i = 0; i < DataInitializer.Instance.totalNumOfIpcs; i++)
+        //{
+        //    CreateSingleIPC(i);
+        //}
     }
 
     IEnumerator CreateMultiple(int ipcNumb)
