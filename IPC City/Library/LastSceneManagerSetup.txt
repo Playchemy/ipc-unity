@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Scene1.unity
+- path: Assets/IPCExplorer/Scenes/IPCCity_Test003.unity
   isLoaded: 1
   isActive: 1
