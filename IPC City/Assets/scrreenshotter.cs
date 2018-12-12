@@ -41,6 +41,13 @@ public class scrreenshotter : MonoBehaviour
             LassoRect = new Rect(UpperLeft.x, UpperLeft.y, LowerRight.x - UpperLeft.x, LowerRight.y - UpperLeft.y);
     }
 
+    [ContextMenu("CopPositions")]
+    void CopyLocations()
+    {
+        GetComponent<Screenshot>().UpperLeft = UpperLeft;
+        GetComponent<Screenshot>().LowerRight = LowerRight;
+    }
+
     public void CaptureScreen()
     {
             StartCoroutine(Screenshott());
