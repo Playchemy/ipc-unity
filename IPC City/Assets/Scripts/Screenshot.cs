@@ -9,16 +9,38 @@ public class Screenshot : MonoBehaviour {
     public UnityEvent hideEvent;
     public UnityEvent unhideEvent;
 
-    public Vector2 UpperLeft, LowerRight, tempUL = Vector2.zero, tempLR = Vector2.zero;
+    public Vector2 UpperLeft, LowerRight;
     private Rect LassoRect;
 
-    int resWidth = Screen.width;
-    int resHeight = Screen.height;
+int resWidth = Screen.width;
+int resHeight = Screen.height;
 
     public int superSamplingFactor;
     private void Start()
     {
         LassoRect = new Rect(UpperLeft.x, UpperLeft.y, LowerRight.x - UpperLeft.x, LowerRight.y - UpperLeft.y);
+
+        //resWidth -= (resWidth - (int)LowerRight.x); 
+        //resWidth -= 1;
+
+        //resWidth = (int)LassoRect.width;
+        //resHeight = (int)LassoRect.height;
+
+        //LassoRect.width = resWidth;
+        //LassoRect.height = resHeight;
+
+        //print(LassoRect.width);
+        //print(LassoRect.height);
+
+
+        //int wSub = resWidth - (int)LassoRect.width;
+        //resWidth -= wSub;
+
+        //int hSub = resHeight - (int)LassoRect.height;
+        //resHeight -= hSub;
+
+        //print(resWidth);
+        //print(resHeight);
     }
 
     public void TakeScreenshot ()
@@ -77,14 +99,16 @@ private void OnGUI()
             Texture2D screenShot = new Texture2D(resWidthN, resHeightN, tFormat, false);
             Camera.main.Render();
             RenderTexture.active = rt;
-            screenShot.ReadPixels(new Rect(0, 0, resWidthN, resHeightN), 0, 0);
-            //screenShot.ReadPixels(new Rect(LassoRect.xMin * superSamplingFactor, LassoRect.yMin * superSamplingFactor, LassoRect.width * superSamplingFactor, LassoRect.height * superSamplingFactor), 0, 0);
+            //screenShot.ReadPixels(LassoRect, 0, 0);
+            screenShot.ReadPixels(new Rect(LassoRect.xMin * superSamplingFactor, LassoRect.yMin * superSamplingFactor, LassoRect.width * superSamplingFactor, LassoRect.height * superSamplingFactor), 0, 0);
         Camera.main.targetTexture = null;
             RenderTexture.active = null;
             byte[] bytes = screenShot.EncodeToPNG();
-            string filename = "CharacterSheet_IPC_" + GetComponent<CharacterSheetGenerator>().dataToUse.ipc_id + ".png";
 
-            System.IO.File.WriteAllBytes(filename, bytes);
+        string filename = "CharacterSheet_IPC_" + GetComponent<CharacterSheetGenerator>().dataToUse.ipc_id + ".png";
+        //string filename = "file" + ".png";
+
+        System.IO.File.WriteAllBytes(filename, bytes);
             Debug.Log(string.Format("Took screenshot to: {0}", filename));
             Application.OpenURL(filename);
 
@@ -94,12 +118,12 @@ private void OnGUI()
     {
         hideEvent.Invoke();
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         yield return new WaitForEndOfFrame();
 
         CapScreen();
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         unhideEvent.Invoke();
 
         //        yield return new WaitForEndOfFrame();

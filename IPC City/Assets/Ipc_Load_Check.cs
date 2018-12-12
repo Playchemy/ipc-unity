@@ -18,16 +18,14 @@ public class Ipc_Load_Check : MonoBehaviour
         //initializer.onDataLoadFinished += CheckLoaded;
         //loadCheck.SetActive(true);
         RunSplashScreen();
-
     }
 
     public void CheckLoaded()
     {
         //RunSplashScreen();
-        FindObjectOfType<IpcSpawnMenu>().CreateALL();
+        //FindObjectOfType<IpcSpawnMenu>().CreateALL();
         splashScreen.SetActive(false);
         loadCheck.SetActive(false);
-
     }
 
 
