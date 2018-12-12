@@ -161,14 +161,14 @@ namespace DG.Tweening
 #endif
                     break;
                 case TargetType.Rigidbody:
-#if false // PHYSICS_MARKER
+#if true // PHYSICS_MARKER
                     tween = ((Rigidbody)target).DOMove(endValueV3, duration, optionalBool0);
 #else
                     tween = ((Transform)target).DOMove(endValueV3, duration, optionalBool0);
 #endif
                     break;
                 case TargetType.Rigidbody2D:
-#if false // PHYSICS2D_MARKER
+#if true // PHYSICS2D_MARKER
                     tween = ((Rigidbody2D)target).DOMove(endValueV3, duration, optionalBool0);
 #else
                     tween = ((Transform)target).DOMove(endValueV3, duration, optionalBool0);
@@ -185,14 +185,14 @@ namespace DG.Tweening
                     tween = ((Transform)target).DORotate(endValueV3, duration, optionalRotationMode);
                     break;
                 case TargetType.Rigidbody:
-#if false // PHYSICS_MARKER
+#if true // PHYSICS_MARKER
                     tween = ((Rigidbody)target).DORotate(endValueV3, duration, optionalRotationMode);
 #else
                     tween = ((Transform)target).DORotate(endValueV3, duration, optionalRotationMode);
 #endif
                     break;
                 case TargetType.Rigidbody2D:
-#if false // PHYSICS2D_MARKER
+#if true // PHYSICS2D_MARKER
                     tween = ((Rigidbody2D)target).DORotate(endValueFloat, duration);
 #else
                     tween = ((Transform)target).DORotate(endValueV3, duration, optionalRotationMode);
@@ -593,10 +593,10 @@ namespace DG.Tweening
             int dotIndex = str.LastIndexOf(".");
             if (dotIndex != -1) str = str.Substring(dotIndex + 1);
             if (str.IndexOf("Renderer") != -1 && (str != "SpriteRenderer")) str = "Renderer";
-#if !false // PHYSICS_MARKER
+#if !true // PHYSICS_MARKER
             if (str == "Rigidbody") str = "Transform";
 #endif
-#if !false // PHYSICS2D_MARKER
+#if !true // PHYSICS2D_MARKER
             if (str == "Rigidbody2D") str = "Transform";
 #endif
 #if !true // UI_MARKER

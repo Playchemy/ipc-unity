@@ -13,6 +13,9 @@ public class QRCodeGen : MonoBehaviour {
     public Text publicKeyText;
     public Image publicAddressQR;
 
+    public Text publicKeyText2;
+    public Image publicAddressQR2;
+
     public Material mater;
 
     public void Start ()
@@ -20,7 +23,8 @@ public class QRCodeGen : MonoBehaviour {
             string priv = GetComponent<Account>().PrivKey; // Grab public variable from account script (runs on Awake();)
             string pub = GetComponent<Account>().PubAddress;
             publicKeyText.text = pub;
-            privateKeyText.text = priv;
+            publicKeyText2.text = pub;
+        privateKeyText.text = priv;
 
             Texture2D myQR;
 
@@ -38,6 +42,8 @@ public class QRCodeGen : MonoBehaviour {
 
             mater1.SetTexture("_MainTex", myQR);
             publicAddressQR.material = mater1;
+            publicAddressQR2.material = mater1;
+
     }
 
 

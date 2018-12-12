@@ -116,7 +116,7 @@ public class WalletManager : MonoBehaviour
         }
     }
 
-    private void SaveWallets()
+    private void SaveWallets(string _error)
     {
         PlayerPrefs.SetString("Wallet1", recentWalletList[0].text);
         PlayerPrefs.SetString("Wallet2", recentWalletList[1].text);

@@ -291,6 +291,7 @@ public class DataPuller : MonoBehaviour
                 Debug.Log("Download Complete: " + _fileName);
 
                 File.CreateText(_filePath).Dispose();
+                
                 using (TextWriter writer = new StreamWriter(_filePath, false))
                 {
                     writer.Write(download.text);
@@ -299,7 +300,7 @@ public class DataPuller : MonoBehaviour
 
                 //File.WriteAllText(_filePath, download.text);
 
-                if(_loadNotInterpreted)
+                if (_loadNotInterpreted)
                 {
                     LoadNotInterpretedFromGoogleSheets(_filePath);
                 }
@@ -307,8 +308,6 @@ public class DataPuller : MonoBehaviour
                 {
                     LoadAdminAccountsFromGoogleSheets(_filePath);
                 }
-
-              
             }
             else
             {

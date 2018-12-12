@@ -101,7 +101,7 @@ private void OnGUI()
             RenderTexture.active = rt;
             //screenShot.ReadPixels(LassoRect, 0, 0);
             screenShot.ReadPixels(new Rect(LassoRect.xMin * superSamplingFactor, LassoRect.yMin * superSamplingFactor, LassoRect.width * superSamplingFactor, LassoRect.height * superSamplingFactor), 0, 0);
-        Camera.main.targetTexture = null;
+            Camera.main.targetTexture = null;
             RenderTexture.active = null;
             byte[] bytes = screenShot.EncodeToPNG();
 

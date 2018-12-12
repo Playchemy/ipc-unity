@@ -6,11 +6,15 @@ using UnityEngine.UI;
 
 public class SpriteHandler_UI : MonoBehaviour
 {
-
     public Image skinRenderer;
     public Image clothesRend;
     public Image hairRend;
     public Image accessoryRend;
+
+    public SpriteRenderer skinSpriteRenderer;
+    public SpriteRenderer clothesSpriteRenderer;
+    public SpriteRenderer hairSpriteRenderer;
+    public SpriteRenderer accessorySpriteRenderer;
 
     public Ipc_SpriteData clothesData;
     public Ipc_SpriteData skinData;
@@ -19,38 +23,9 @@ public class SpriteHandler_UI : MonoBehaviour
 
     public List<Sprite> masterSpriteList;
 
-
-
-
-
-    void Start()
-    {
-    }
-
-    [ContextMenu("Sort List")]
-    void SortList()
-    {
-        /*
-        walkingUp = data.walkingUp;
-        walkingDown = data.walkingDown;
-        walkingLeft = data.walkingLeft;
-        walkingRight = data.walkingRight;
-
-        pose = data.walkingRight;
-        laugh = data.walkingRight;
-        shake = data.walkingRight;
-        nod = data.walkingRight;
-
-        return;
-
-        masterSpriteList = masterSpriteList.OrderBy(tile => tile.name).ToList();
-        */
-    }
-
     [ContextMenu("Assign Sprites")]
-    void AssignSprites()
+    private void AssignSprites()
     {
-
         for (int i = 60; i < 69; i++)
         {
             clothesData.walkingUp.Add(masterSpriteList[i]);
@@ -72,7 +47,7 @@ public class SpriteHandler_UI : MonoBehaviour
         }
     }
 
-    Sprite FindInList(string name)
+    private Sprite FindInList(string name)
     {
         Sprite temp = masterSpriteList.Where(obj => obj.name == name).SingleOrDefault();
         return temp;
@@ -80,53 +55,72 @@ public class SpriteHandler_UI : MonoBehaviour
 
     public void WalkUp(int value)
     {
-        if (clothesData) clothesRend.sprite = clothesData.walkingUp[value];
-        if (hairData) hairRend.sprite = hairData.walkingUp[value];
-        if (skinData) skinRenderer.sprite = skinData.walkingUp[value];
-        if (accessoryData) accessoryRend.sprite = accessoryData.walkingUp[value];
+        if (clothesRend && clothesData) clothesRend.sprite = clothesData.walkingUp[value];
+        if (hairRend && hairData) hairRend.sprite = hairData.walkingUp[value];
+        if (skinRenderer && skinData) skinRenderer.sprite = skinData.walkingUp[value];
+        if (accessoryRend && accessoryData) accessoryRend.sprite = accessoryData.walkingUp[value];
+
+        if (skinSpriteRenderer && skinData) skinSpriteRenderer.sprite = skinData.walkingUp[value];
+        if (clothesSpriteRenderer && clothesData) clothesSpriteRenderer.sprite = clothesData.walkingUp[value];
+        if (hairSpriteRenderer && hairData) hairSpriteRenderer.sprite = hairData.walkingUp[value];
+        if (accessorySpriteRenderer && accessoryData) accessorySpriteRenderer.sprite = accessoryData.walkingUp[value];
     }
 
     public void WalkDown(int value)
     {
-        if (clothesData) clothesRend.sprite = clothesData.walkingDown[value];
-        if (hairData) hairRend.sprite = hairData.walkingDown[value];
-        if (skinData) skinRenderer.sprite = skinData.walkingDown[value];
-        if (accessoryData) accessoryRend.sprite = accessoryData.walkingDown[value];
+        if (clothesRend && clothesData) clothesRend.sprite = clothesData.walkingDown[value];
+        if (hairRend && hairData) hairRend.sprite = hairData.walkingDown[value];
+        if (skinRenderer && skinData) skinRenderer.sprite = skinData.walkingDown[value];
+        if (accessoryRend && accessoryData) accessoryRend.sprite = accessoryData.walkingDown[value];
 
+        if (skinSpriteRenderer && skinData) skinSpriteRenderer.sprite = skinData.walkingDown[value];
+        if (clothesSpriteRenderer && clothesData) clothesSpriteRenderer.sprite = clothesData.walkingDown[value];
+        if (hairSpriteRenderer && hairData) hairSpriteRenderer.sprite = hairData.walkingDown[value];
+        if (accessorySpriteRenderer && accessoryData) accessorySpriteRenderer.sprite = accessoryData.walkingDown[value];
     }
 
     public void WalkLeft(int value)
     {
-        if (clothesData) clothesRend.sprite = clothesData.walkingLeft[value];
-        if (hairData) hairRend.sprite = hairData.walkingLeft[value];
-        if (skinData) skinRenderer.sprite = skinData.walkingLeft[value];
-        if (accessoryData) accessoryRend.sprite = accessoryData.walkingLeft[value];
+        if (clothesRend && clothesData) clothesRend.sprite = clothesData.walkingLeft[value];
+        if (hairRend && hairData) hairRend.sprite = hairData.walkingLeft[value];
+        if (skinRenderer && skinData) skinRenderer.sprite = skinData.walkingLeft[value];
+        if (accessoryRend && accessoryData) accessoryRend.sprite = accessoryData.walkingLeft[value];
 
+        if (skinSpriteRenderer && skinData) skinSpriteRenderer.sprite = skinData.walkingLeft[value];
+        if (clothesSpriteRenderer && clothesData) clothesSpriteRenderer.sprite = clothesData.walkingLeft[value];
+        if (hairSpriteRenderer && hairData) hairSpriteRenderer.sprite = hairData.walkingLeft[value];
+        if (accessorySpriteRenderer && accessoryData) accessorySpriteRenderer.sprite = accessoryData.walkingLeft[value];
     }
 
     public void WalkRight(int value)
     {
-        if (clothesData) clothesRend.sprite = clothesData.walkingRight[value];
-        if (hairData) hairRend.sprite = hairData.walkingRight[value];
-        if (skinData) skinRenderer.sprite = skinData.walkingRight[value];
-        if (accessoryData) accessoryRend.sprite = accessoryData.walkingRight[value];
+        if (clothesRend && clothesData) clothesRend.sprite = clothesData.walkingRight[value];
+        if (hairRend && hairData) hairRend.sprite = hairData.walkingRight[value];
+        if (skinRenderer && skinData) skinRenderer.sprite = skinData.walkingRight[value];
+        if (accessoryRend && accessoryData) accessoryRend.sprite = accessoryData.walkingRight[value];
 
+        if (skinSpriteRenderer && skinData) skinSpriteRenderer.sprite = skinData.walkingRight[value];
+        if (clothesSpriteRenderer && clothesData) clothesSpriteRenderer.sprite = clothesData.walkingRight[value];
+        if (hairSpriteRenderer && hairData) hairSpriteRenderer.sprite = hairData.walkingRight[value];
+        if (accessorySpriteRenderer && accessoryData) accessorySpriteRenderer.sprite = accessoryData.walkingRight[value];
     }
 
     public void CharSheetPose()
     {
-        if (clothesData) clothesRend.sprite = clothesData.walkingLeft[4];
-        if (hairData) hairRend.sprite = hairData.walkingLeft[4];
-        if (skinData) skinRenderer.sprite = skinData.walkingLeft[4];
-        if (accessoryData) accessoryRend.sprite = accessoryData.walkingLeft[4];
+        if (clothesRend && clothesData) clothesRend.sprite = clothesData.walkingLeft[4];
+        if (hairRend && hairData) hairRend.sprite = hairData.walkingLeft[4];
+        if (skinRenderer && skinData) skinRenderer.sprite = skinData.walkingLeft[4];
+        if (accessoryRend && accessoryData) accessoryRend.sprite = accessoryData.walkingLeft[4];
 
+        if (skinSpriteRenderer && skinData) skinSpriteRenderer.sprite = skinData.walkingLeft[4];
+        if (clothesSpriteRenderer && clothesData) clothesSpriteRenderer.sprite = clothesData.walkingLeft[4];
+        if (hairSpriteRenderer && hairData) hairSpriteRenderer.sprite = hairData.walkingLeft[4];
+        if (accessorySpriteRenderer && accessoryData) accessorySpriteRenderer.sprite = accessoryData.walkingLeft[4];
     }
-    ///////
 
     public void Pose(int value)
     {
         return;
-
     }
 
     public void Laugh(int value)
@@ -142,11 +136,5 @@ public class SpriteHandler_UI : MonoBehaviour
     public void Nod(int value)
     {
         return;
-    }
-
-
-    void Update()
-    {
-
     }
 }

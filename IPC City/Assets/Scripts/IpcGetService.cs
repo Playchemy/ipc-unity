@@ -131,7 +131,7 @@ public class IpcGetService : MonoBehaviour
         if(ipc == null)
         {
             print("RESTARTED BCZ IPC WAS NULL" + gameObject.name);
-            GetSingleIPC();
+            //GetSingleIPC();
 
             yield break; 
         }

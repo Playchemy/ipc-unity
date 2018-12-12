@@ -5,6 +5,8 @@ public class ScribeFromCache : Scribe
 {
     private IPC_Data ipcData;
     private InterpretFromCache interp;
+    public SubraceSymbolData symbolData;
+    public Image subraceSymbolImage;
 
     private void Start()
     {
@@ -189,6 +191,11 @@ public class ScribeFromCache : Scribe
 
             Text subrace = this.subrace;
             subrace.text = subrace.text + " " + race.text;
+
+            if(symbolData && subraceSymbolImage)
+            {
+                subraceSymbolImage.sprite = symbolData.GetSubraceSymbol(subrace.text);
+            }
         }
         else
         {

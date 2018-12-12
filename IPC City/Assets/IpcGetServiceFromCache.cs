@@ -21,14 +21,12 @@ public class IpcGetServiceFromCache : IpcGetService
     {
         IPCCountLoaded = false;
 
-
         yield return new WaitForEndOfFrame();
         ipcCount = 0;
 
         IPCCountLoaded = true;
     }
 
-    // result stored in ipcStorage
     public override IEnumerator GetOneIpc(int ipcId)
     {
         OneIPCLoaded = false;
@@ -74,20 +72,13 @@ public class IpcGetServiceFromCache : IpcGetService
         }
     }
 
-
     public override IEnumerator GetTokensOfOwner(string address)
     {
+        Debug.Log(address);
         TokensLoaded = false;
-
         yield return new WaitForEndOfFrame();
-
         ownedIpcsIds = DataInitializer.Instance.GetOwnedIpcsByAddress(address);
-        //yield return new WaitForSeconds(0.1f);
-
-
-
-        //ownedIpcsIds = 
-
+        Debug.Log(ownedIpcsIds.Count);
         TokensLoaded = true;
     }
 }

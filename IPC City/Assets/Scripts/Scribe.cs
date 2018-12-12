@@ -52,7 +52,7 @@ public class Scribe : MonoBehaviour
     {
         ipc = GetComponent<IpcGetService>();
         interpreter = GetComponent<Interpreter>();
-        if (ipcId) ipcId.text = "#" + ipc.inputIPCID;
+        if (ipcId) ipcId.text = "IPC#" + ipc.inputIPCID;
 
         if (ipcName) ipcName.text = ipc.ipcStorage.m_name;
 
