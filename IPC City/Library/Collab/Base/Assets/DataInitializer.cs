@@ -12,7 +12,9 @@ public class DataInitializer : MonoBehaviour
     public List<Wallet> walletList;
     public List<IpcGetService> slaveList;
     public GameObject slave;
+    public AdminAccounts adminData;
 
+    private bool isGenerating = false;
     private IpcGetService ipcGetService;
 
     public OnDataLoadStarted onDataLoadStarted;
@@ -30,6 +32,9 @@ public class DataInitializer : MonoBehaviour
     public OnUpdateDatabase onUpdateDatabase;
     public delegate void OnUpdateDatabase();
 
+    public OnCheckDatabase onCheckDatabase;
+    public delegate void OnCheckDatabase();
+
     private void Awake ()
     {
         if (Instance == null)
@@ -45,43 +50,40 @@ public class DataInitializer : MonoBehaviour
     private void Start()
     {
         ipcGetService = GetComponent<IpcGetService>();
-        Invoke("InitializeDataRequest", 1);
+        StartCoroutine(DelayInitializer());
+
+        DataPuller.Instance.onIPCsLoaded += InitiateAllWalletRetreival;
+    }
+
+    private void Update()
+    {
+        if(isGenerating)
+        {
+            if (onCheckDatabase != null)
+            {
+                onCheckDatabase.Invoke();
+            }
+        }
+    }
+
+    public IEnumerator DelayInitializer()
+    {
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(ipcGetService.GetIpcCount());
+        yield return new WaitUntil(() => ipcGetService.IPCCountLoaded);
+        InitializeDataRequest();
     }
 
     public void InitializeDataRequest()
     {
-        if (onDataLoadStarted != null)
+        if (onDataLoadFinished != null)
         {
-            onDataLoadStarted.Invoke();
+            onDataLoadFinished.Invoke();
         }
 
-        if(SystemManager.Instance.ActiveSystemLoadType == SystemManager.SystemLoadType.Cache)
+        if (onAllIpcsLoaded != null)
         {
-            ipcGetService.GetIpcCount();
-            totalNumOfIpcs = ipcGetService.ipcCount;
-
-            slaveList.Clear();
-
-            for (int i = 1; i <= totalNumOfIpcs; i++)
-            {
-                IpcGetService slaveunit = Instantiate(slave).GetComponent<IpcGetService>();
-                slaveunit.inputIPCID = i;
-                slaveList.Add(slaveunit);
-            }
-
-            StartCoroutine(LoadInChunks());
-
-            if (onDataSlavesInitialized != null)
-            {
-                onDataSlavesInitialized.Invoke();
-            }
-        }
-        else
-        {
-            if (onDataLoadFinished != null)
-            {
-                onDataLoadFinished.Invoke();
-            }
+            onAllIpcsLoaded.Invoke();
         }
     }
 
@@ -108,9 +110,11 @@ public class DataInitializer : MonoBehaviour
 
     private void InitiateAllWalletRetreival()
     {
+        totalNumOfIpcs = ipcGetService.ipcCount;
+
         List<string> addresses = new List<string>();
 
-        for (int i = 0; i < totalNumOfIpcs; i++)
+        for (int i = 0; i < ipcList.Count; i++)
         {
             if (!addresses.Contains(ipcList[i].ipc_owner))
             {
@@ -123,7 +127,6 @@ public class DataInitializer : MonoBehaviour
             Wallet wlt = new Wallet();
             wlt.walletAddress = addresses[i];
             wlt.ownedIpcs = new List<int>();
-            wlt.name = addresses[i];
 
             walletList.Add(wlt);
         }
@@ -139,12 +142,19 @@ public class DataInitializer : MonoBehaviour
             }
         }
 
+        foreach(Wallet wlt in walletList)
+        {
+            wlt.name = "[" + wlt.ownedIpcs.Count + "] " + wlt.walletAddress;
+        }
+
         if (onDataLoadFinished != null)
         {
             onDataLoadFinished.Invoke();
         }
 
         Debug.Log("All Wallets Are Succesfully Retrieved! It took: " + Time.timeSinceLevelLoad);
+
+        isGenerating = false;
     }
 
     public List<int> GetOwnedIpcsByAddress(string _address)
@@ -159,48 +169,10 @@ public class DataInitializer : MonoBehaviour
 
         return null;
     }
-    
-    private IEnumerator LoadInChunks()
-    {
-        for (int i = 0; i < 100; i++)
-        {
-            StartCoroutine(GetIPC(slaveList[i]));
-        }
-        yield return new WaitUntil(() => FindObjectsOfType<SlaveLoader>().Length == totalNumOfIpcs - 100);
-        for (int i = 100; i < 200; i++)
-        {
-            StartCoroutine(GetIPC(slaveList[i]));
-        }
-        yield return new WaitUntil(() => FindObjectsOfType<SlaveLoader>().Length == totalNumOfIpcs - 200);
-        for (int i = 200; i < 300; i++)
-        {
-            StartCoroutine(GetIPC(slaveList[i]));
-        }
-        yield return new WaitUntil(() => FindObjectsOfType<SlaveLoader>().Length == totalNumOfIpcs - 300);
-        for (int i = 300; i < 400; i++)
-        {
-            StartCoroutine(GetIPC(slaveList[i]));
-        }
-        yield return new WaitUntil(() => FindObjectsOfType<SlaveLoader>().Length == totalNumOfIpcs - 400);
-        for (int i = 400; i < 500; i++)
-        {
-            StartCoroutine(GetIPC(slaveList[i]));
-        }
-        yield return new WaitUntil(() => FindObjectsOfType<SlaveLoader>().Length == totalNumOfIpcs - 500);
-        for (int i = 500; i < 600; i++)
-        {
-            StartCoroutine(GetIPC(slaveList[i]));
-        }
-        yield return new WaitUntil(() => FindObjectsOfType<SlaveLoader>().Length == totalNumOfIpcs - 600);
-        for (int i = 600; i < totalNumOfIpcs; i++)
-        {
-            StartCoroutine(GetIPC(slaveList[i]));
-        }
-    }
 
     private IEnumerator GetIPC(IpcGetService _slave)
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(.1f);
         _slave.GetSingleIPC();
     }
 
@@ -218,6 +190,6 @@ public class DataInitializer : MonoBehaviour
 
         ipcList.Clear();
         walletList.Clear();
-        InitializeDataRequest();
+        DataPuller.Instance.PullFromGoogleDatabase();
     }
 }

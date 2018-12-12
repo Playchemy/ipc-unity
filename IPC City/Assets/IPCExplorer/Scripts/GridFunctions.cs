@@ -10,6 +10,9 @@ public class GridFunctions : MonoBehaviour
     public GameObject chamberOnDemandPrefab = null;
     public GameObject chamberCachePrefab = null;
 
+    public OnCreateChamber onCreateChamber;
+    public delegate void OnCreateChamber(GameObject _chamber);
+
     public OnGridGenerationFinished onGridGenerationFinished;
     public delegate void OnGridGenerationFinished();
 
@@ -51,14 +54,14 @@ public class GridFunctions : MonoBehaviour
                 IpcGetService ipcGetService = Instantiate(chamberOnDemandPrefab, GridManager.Instance.ipcGrid.transform).GetComponent<IpcGetService>();
 
                 IPCLoader.Instance.chamberIpcGetServices.Add(ipcGetService);
-                ipcGetService.GetComponent<Button>().onClick.AddListener(delegate { OnClickOpenCharWindow(ipcGetService.gameObject); });
+                ipcGetService.GetComponent<Button>().onClick.AddListener(delegate { if(onCreateChamber != null) onCreateChamber.Invoke(ipcGetService.gameObject); });
             }
             else
             {
                 IpcGetService ipcGetService = Instantiate(chamberCachePrefab, GridManager.Instance.ipcGrid.transform).GetComponent<IpcGetService>();
 
                 IPCLoader.Instance.chamberIpcGetServices.Add(ipcGetService);
-                ipcGetService.GetComponent<Button>().onClick.AddListener(delegate { OnClickOpenCharWindow(ipcGetService.gameObject); });
+                ipcGetService.GetComponent<Button>().onClick.AddListener(delegate { if (onCreateChamber != null) onCreateChamber.Invoke(ipcGetService.gameObject); });
             }
         }
 
@@ -91,12 +94,12 @@ public class GridFunctions : MonoBehaviour
         }
         else if(chamberCount == 9)
         {
-            grid.padding.left = 125;
+            grid.padding.left = 59;
             grid.padding.right = 0;
-            grid.padding.top = 97;
+            grid.padding.top = 47;
             grid.padding.bottom = 0;
-            grid.cellSize = new Vector2(268.42f, 510.3f);
-            grid.spacing = new Vector2(24.6f, -112.2f);
+            grid.cellSize = new Vector2(268.42f, 376.6f);
+            grid.spacing = new Vector2(24.6f, 24.55f);
         }
     }
 
@@ -314,8 +317,6 @@ public class GridFunctions : MonoBehaviour
             if(GridManager.Instance.onPageButtonUpdate != null)
             {
                 GridManager.Instance.onPageButtonUpdate.Invoke(false, true);
-                MenuManager.Instance.canGoToPreviousPage = false;
-                MenuManager.Instance.canGoToNextPage = true;
             }
         }
         else if (GridManager.Instance.pageNumber == 1 && GridManager.Instance.ipcGetServiceMain.ownedIpcsIds.Count <= GridManager.Instance.pageNumber * chamberCount)
@@ -323,8 +324,6 @@ public class GridFunctions : MonoBehaviour
             if (GridManager.Instance.onPageButtonUpdate != null)
             {
                 GridManager.Instance.onPageButtonUpdate.Invoke(false, false);
-                MenuManager.Instance.canGoToPreviousPage = false;
-                MenuManager.Instance.canGoToNextPage = false;
             }
         }
         else if (GridManager.Instance.pageNumber != 1 && GridManager.Instance.ipcGetServiceMain.ownedIpcsIds.Count > GridManager.Instance.pageNumber * chamberCount)
@@ -332,8 +331,6 @@ public class GridFunctions : MonoBehaviour
             if (GridManager.Instance.onPageButtonUpdate != null)
             {
                 GridManager.Instance.onPageButtonUpdate.Invoke(true, true);
-                MenuManager.Instance.canGoToPreviousPage = true;
-                MenuManager.Instance.canGoToNextPage = true;
             }
         }
         else if (GridManager.Instance.pageNumber != 1 && GridManager.Instance.ipcGetServiceMain.ownedIpcsIds.Count <= GridManager.Instance.pageNumber * chamberCount)
@@ -341,8 +338,6 @@ public class GridFunctions : MonoBehaviour
             if (GridManager.Instance.onPageButtonUpdate != null)
             {
                 GridManager.Instance.onPageButtonUpdate.Invoke(true, false);
-                MenuManager.Instance.canGoToPreviousPage = true;
-                MenuManager.Instance.canGoToNextPage = false;
             }
         }
     }

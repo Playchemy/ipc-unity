@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene1.unity
     guid: 58bb2b123189a2841a65f761006bc573
   - enabled: 0
-    path: Assets/Scenes/Scene1.unity
-    guid: 58bb2b123189a2841a65f761006bc573
-  - enabled: 0
     path: Assets/Scenes/Scene2.unity
     guid: f8653a862d694b7488b83d9d28dddd6f
   - enabled: 0
@@ -23,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/IPCExplorer/Scenes/Main.unity
     guid: 2a9a530a2a45dc844a5d7009f68f93bf
+  - enabled: 0
+    path: Assets/IPCExplorer/Scenes/VuforiaTest.unity
+    guid: 35ec655ec775c1a48bd853c12130145f
+  - enabled: 0
+    path: Assets/IPCExplorer/Scenes/New Scene.unity
+    guid: 4d69d3568d04d9f449b8075a00f3ba76
   m_configObjects: {}

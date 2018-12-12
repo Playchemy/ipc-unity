@@ -36,6 +36,7 @@ public class UIUpdater : MonoBehaviour
     public GameObject tokenScreenLoading = null;
 
     [Header("UI Variables")]
+    public GameObject background = null;
     public InputField idInputField = null;
     public Button homeButton = null;
     public Button scanButton = null;
@@ -43,6 +44,7 @@ public class UIUpdater : MonoBehaviour
     public Button changePageLeftButton = null;
     public Button changePageRightButton = null;
     public Button updateDatabaseButton = null;
+    public Button turnOffARButton = null;
     public Image dataLoadingFill = null;
     public Text versionText = null;
     public Text dataLoadingText = null;
@@ -88,11 +90,15 @@ public class UIUpdater : MonoBehaviour
         MenuManager.Instance.onGridMenuOpen += OpenGridMenu;
         MenuManager.Instance.onCharMenuOpen += OpenCharMenu;
         MenuManager.Instance.onDNAOpen += OpenDNAMenu;
+        MenuManager.Instance.onTurnOnAR += TurnOnAR;
+        MenuManager.Instance.onTurnOffAR += TurnOffAR;
         QRReader.Instance.onSetWalletAddress += SetWalletAddress;
+        VuforiaQRReader.Instance.onSetWalletAddress += SetWalletAddress;
 
         // ERROR CALLBACKS
         IPCLoader.Instance.onAddressScanScreenError += ScanScreenError;
         QRReader.Instance.onAddressScanScreenError += ScanScreenError;
+        VuforiaQRReader.Instance.onAddressScanScreenError += ScanScreenError;
     }
 
     private void SetVersion()
@@ -245,7 +251,7 @@ public class UIUpdater : MonoBehaviour
     {
         dataLoadingFill.fillAmount = 1f;
         dataLoadingText.text = "IPC Explorer Succesfully Loaded...";
-        splashScreen.transform.GetChild(0).GetComponent<SplashScreen>().ExitSplashScreen();
+        //splashScreen.transform.GetChild(0).GetComponent<SplashScreen>().ExitSplashScreen();
     }
 
     private void CloseAllLoadingInGrid()
@@ -271,7 +277,7 @@ public class UIUpdater : MonoBehaviour
         tokenScreenLoading.SetActive(true);
     }
 
-    private void CloseTokenLoading()
+    private void CloseTokenLoading(string _error)
     {
         tokenScreenLoading.SetActive(false);
     }
@@ -281,7 +287,7 @@ public class UIUpdater : MonoBehaviour
         characterScreenLoading.SetActive(true);
     }
 
-    private void CloseCharacterLoading()
+    private void CloseCharacterLoading(string _error)
     {
         characterScreenLoading.SetActive(false);
     }
@@ -322,7 +328,7 @@ public class UIUpdater : MonoBehaviour
 
         walletAddressText.text = "";
         scanButton.gameObject.SetActive(false);
-        homeButton.gameObject.SetActive(false);
+        //homeButton.gameObject.SetActive(false);
     }
 
     private void OpenSettingsMenu()
@@ -436,6 +442,31 @@ public class UIUpdater : MonoBehaviour
     {
         attributesSubMenu.SetActive(false);
         dnaSubMenu.SetActive(true);
+    }
+
+    private void TurnOnAR()
+    {
+        CloseAllLoadingInGrid();
+        settingMenuScreen.SetActive(false);
+        aboutMenuScreen.SetActive(false);
+        mainMenuScreen.SetActive(false);
+        scanMenuScreen.SetActive(false);
+        gridMenuScreen.SetActive(false);
+        charMenuScreen.SetActive(false);
+
+        closeCharMenuButton.gameObject.SetActive(true);
+        scanButton.interactable = false;
+        pageNumberText.enabled = false;
+        UpdatePageButtons(false, false);
+        background.SetActive(false);
+        turnOffARButton.gameObject.SetActive(true);
+    }
+
+    private void TurnOffAR()
+    {
+        OpenCharMenu();
+        background.SetActive(true);
+        turnOffARButton.gameObject.SetActive(false);
     }
     // =================================================================================================================================
 }

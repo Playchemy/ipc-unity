@@ -84,7 +84,7 @@ public class GridManager : MonoBehaviour
 
     private void RunGrid()
     {
-        QRReader.Instance.StopBarcode();
+        VuforiaQRReader.Instance.StopQRReader();
         GridFunctions.Instance.DisableGrid();
         GridFunctions.Instance.EnableCardTexts(ipcGetServiceMain);
         GridFunctions.Instance.EnableCardArts(ipcGetServiceMain);
@@ -95,30 +95,27 @@ public class GridManager : MonoBehaviour
 
     public void ChangePage(bool goToNext)
     {
-        if(UIUpdater.Instance.gridMenuScreen.activeInHierarchy)
+        if (onLoadingNewPage != null)
         {
-            if (onLoadingNewPage != null)
-            {
-                onLoadingNewPage.Invoke();
-            }
-
-            if (onStopAllCouroutines != null)
-            {
-                onStopAllCouroutines.Invoke();
-            }
-
-            if (goToNext)
-            {
-                pageNumber++;
-            }
-            else
-            {
-                pageNumber--;
-            }
-
-            RunGrid();
-            SetPageNumber(pageNumber);
+            onLoadingNewPage.Invoke();
         }
+
+        if (onStopAllCouroutines != null)
+        {
+            onStopAllCouroutines.Invoke();
+        }
+
+        if (goToNext)
+        {
+            pageNumber++;
+        }
+        else
+        {
+            pageNumber--;
+        }
+
+        SetPageNumber(pageNumber);
+        RunGrid();
     }
 
     public void SetPageNumber(int _aPage)
@@ -131,8 +128,18 @@ public class GridManager : MonoBehaviour
         }
     }
 
+    public void CloseAllLoadingInGrid()
+    {
+        for (int i = 0; i < GridFunctions.Instance.chamberCount; i++)
+        {
+            ipcGrid.transform.GetChild(i).Find("LoadingPanel").gameObject.SetActive(false);
+        }
+    }
+
     private bool OwnsIPC()
     {
+        Debug.Log(ipcGetServiceMain);
+
         if (ipcGetServiceMain.ownedIpcsIds.Count > 0)
         {
             return true;

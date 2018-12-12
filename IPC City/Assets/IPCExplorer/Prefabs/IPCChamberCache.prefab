@@ -370,14 +370,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8113208, g: 0.8113208, b: 0.8113208, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a6ecbccfe8643d34880655cf220d51da, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c0a19446ba24e94d953a4f981902f5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -660,7 +660,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7040ff20b6026b042b12a60e900e066d, type: 3}
+    m_Font: {fileID: 12800000, guid: 449eeb6dc3258934a98c262f257ec47a, type: 3}
     m_FontSize: 43
     m_FontStyle: 0
     m_BestFit: 0
@@ -693,7 +693,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7040ff20b6026b042b12a60e900e066d, type: 3}
+    m_Font: {fileID: 12800000, guid: 449eeb6dc3258934a98c262f257ec47a, type: 3}
     m_FontSize: 49
     m_FontStyle: 1
     m_BestFit: 0
@@ -907,7 +907,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7040ff20b6026b042b12a60e900e066d, type: 3}
+    m_Font: {fileID: 12800000, guid: 449eeb6dc3258934a98c262f257ec47a, type: 3}
     m_FontSize: 43
     m_FontStyle: 0
     m_BestFit: 0
@@ -995,6 +995,10 @@ MonoBehaviour:
   clothesRend: {fileID: 114187997365449008}
   hairRend: {fileID: 114809105784385626}
   accessoryRend: {fileID: 114262670803230892}
+  skinSpriteRenderer: {fileID: 0}
+  clothesSpriteRenderer: {fileID: 0}
+  hairSpriteRenderer: {fileID: 0}
+  accessorySpriteRenderer: {fileID: 0}
   clothesData: {fileID: 0}
   skinData: {fileID: 0}
   hairData: {fileID: 0}
@@ -1572,8 +1576,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 259.21002, y: -352.15}
-  m_SizeDelta: {x: 268.42, y: 510.3}
+  m_AnchoredPosition: {x: 193.21, y: -235.3}
+  m_SizeDelta: {x: 268.42, y: 376.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224911115735576084
 RectTransform:

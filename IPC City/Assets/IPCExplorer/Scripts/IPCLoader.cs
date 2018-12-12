@@ -22,7 +22,7 @@ public class IPCLoader : MonoBehaviour
 
     public OnLoadingFinished onTokenLoadingFinished;
     public OnLoadingFinished onCharLoadingFinished;
-    public delegate void OnLoadingFinished();
+    public delegate void OnLoadingFinished(string _error);
 
     public OnAddressError onAddressScanScreenError;
     public delegate void OnAddressError(int _errorCode);
@@ -44,7 +44,7 @@ public class IPCLoader : MonoBehaviour
 
     private void Start()
     {
-        MenuManager.Instance.onStopAllCouroutines += OnStopAllCoroutines;
+        //MenuManager.Instance.onStopAllCouroutines += OnStopAllCoroutines;
         GridManager.Instance.onStopAllCouroutines += OnStopAllCoroutines;
         SystemManager.Instance.onSystemLoadTypeSwitch += SetService;
         SetService();
@@ -66,7 +66,7 @@ public class IPCLoader : MonoBehaviour
     {
         Debug.Log("Stopping All Coroutines");
 
-        MenuManager.Instance.StopAllCoroutines();
+        //MenuManager.Instance.StopAllCoroutines();
         GridManager.Instance.StopAllCoroutines();
         GridFunctions.Instance.StopAllCoroutines();
         WalletManager.Instance.StopAllCoroutines();
@@ -116,23 +116,21 @@ public class IPCLoader : MonoBehaviour
         StartCoroutine(GridManager.Instance.ipcGetServiceMain.GetTokensOfOwner(_address));
         yield return new WaitUntil(() => GridManager.Instance.ipcGetServiceMain.TokensLoaded == true);
 
+        // 0x1111111111111111111111111111111111111111
+
         if(GridManager.Instance.ipcGetServiceMain.ownedIpcsIds == null)
         {
-            if (onAddressScanScreenError != null)
+            if (onTokenLoadingFinished != null)
             {
-                MenuManager.Instance.OpenScanMenu();
-                onAddressScanScreenError.Invoke(2);
+                onTokenLoadingFinished.Invoke("NULL");
             }
         }
         else
         {
-            MenuManager.Instance.OpenGridMenu(false);
-            WalletManager.Instance.PushWallet(_address);
-        }
-
-        if (onTokenLoadingFinished != null)
-        {
-            onTokenLoadingFinished.Invoke();
+            if (onTokenLoadingFinished != null)
+            {
+                onTokenLoadingFinished.Invoke("");
+            }
         }
     }
 
@@ -186,10 +184,31 @@ public class IPCLoader : MonoBehaviour
 
         if (onCharLoadingFinished != null)
         {
-            onCharLoadingFinished.Invoke();
+            onCharLoadingFinished.Invoke("");
         }
     }
-    
+
+    /// <summary>
+    /// Displays character sheet of the selected id.
+    /// </summary>
+    public IEnumerator DirectLoadIPCToCharacterSheet(int IPCID)
+    {
+        if (onCharLoadingStarted != null)
+        {
+            onCharLoadingStarted.Invoke();
+        }
+
+        StartCoroutine(GridManager.Instance.ipcGetServiceMain.GetOneIpc(IPCID));
+        yield return new WaitUntil(() => GridManager.Instance.ipcGetServiceMain.OneIPCLoaded == true);
+        GridManager.Instance.ipcGetServiceMain.inputWalletID = GridManager.Instance.ipcGetServiceMain.ipcStorage.m_owner;
+        interpreter.Interpret();
+
+        if (onCharLoadingFinished != null)
+        {
+            onCharLoadingFinished.Invoke("");
+        }
+    }
+
     public IEnumerator LoadNextIPC()
     {
         if (onCharLoadingStarted != null)
@@ -203,7 +222,7 @@ public class IPCLoader : MonoBehaviour
             yield return new WaitUntil(() => GridManager.Instance.ipcGetServiceMain.IPCCountLoaded == true);
         }
 
-        if (UIUpdater.Instance.charMenuScreen.activeInHierarchy && GridManager.Instance.ipcGetServiceMain.inputIPCID < ((SystemManager.Instance.ActiveSystemLoadType == SystemManager.SystemLoadType.OnDemand) ? GridManager.Instance.ipcGetServiceMain.ipcCount : DataInitializer.Instance.ipcList.Count))
+        if (GridManager.Instance.ipcGetServiceMain.inputIPCID < ((SystemManager.Instance.ActiveSystemLoadType == SystemManager.SystemLoadType.OnDemand) ? GridManager.Instance.ipcGetServiceMain.ipcCount : DataInitializer.Instance.ipcList.Count))
         {
             int currentIPCID = GridManager.Instance.ipcGetServiceMain.inputIPCID;
             int nextIPCID = GridManager.Instance.ipcGetServiceMain.inputIPCID + 1;
@@ -215,7 +234,7 @@ public class IPCLoader : MonoBehaviour
 
         if (onCharLoadingFinished != null)
         {
-            onCharLoadingFinished.Invoke();
+            onCharLoadingFinished.Invoke("");
         }
     }
 
@@ -226,7 +245,7 @@ public class IPCLoader : MonoBehaviour
             onCharLoadingStarted.Invoke();
         }
 
-        if (UIUpdater.Instance.charMenuScreen.activeInHierarchy && GridManager.Instance.ipcGetServiceMain.inputIPCID > 1)
+        if (GridManager.Instance.ipcGetServiceMain.inputIPCID > 1)
         {
             int currentIPCID = GridManager.Instance.ipcGetServiceMain.inputIPCID;
             int previousIPCID = GridManager.Instance.ipcGetServiceMain.inputIPCID - 1;
@@ -238,7 +257,7 @@ public class IPCLoader : MonoBehaviour
 
         if (onCharLoadingFinished != null)
         {
-            onCharLoadingFinished.Invoke();
+            onCharLoadingFinished.Invoke("");
         }
     }
 }

@@ -1,6 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine;
+using Vuforia;
 
 public class MenuManager : MonoBehaviour
 {
@@ -39,10 +41,22 @@ public class MenuManager : MonoBehaviour
     public OnStopAllCouroutines onStopAllCouroutines;
     public delegate void OnStopAllCouroutines();
 
+    public OnTurnOnAR onTurnOnAR;
+    public delegate void OnTurnOnAR();
+
+    public OnTurnOffAR onTurnOffAR;
+    public delegate void OnTurnOffAR();
+
     public bool canGoToNextPage = false;
     public bool canGoToPreviousPage = false;
-
     public int singleIPCSearchID = 0;
+
+    // AR
+    public List<UnityEngine.UI.Image> characterImages;
+    public List<SpriteRenderer> arSprites;
+    public SpriteHandler_UI characterSpritehandler = null;
+    public SpriteHandler_UI arSpritehandler = null;
+    public VuforiaBehaviour vuforiaBehaviour = null;
 
     public void Awake()
     {
@@ -54,7 +68,6 @@ public class MenuManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
     }
 
     private void Start()
@@ -94,7 +107,7 @@ public class MenuManager : MonoBehaviour
             onStopAllCouroutines.Invoke();
         }
 
-        QRReader.Instance.StopBarcode();
+        VuforiaQRReader.Instance.StopQRReader();
         GridFunctions.Instance.DisableGrid();
         WalletManager.Instance.GetWallet();
         canGoToNextPage = false;
@@ -130,7 +143,8 @@ public class MenuManager : MonoBehaviour
             onStopAllCouroutines.Invoke();
         }
 
-        QRReader.Instance.StartScanner();
+        VuforiaQRReader.Instance.StartQRReader();
+        //QRReader.Instance.StartScanner();
         GridFunctions.Instance.DisableGrid();
         singleIPCSearchID = 0;
     }
@@ -303,6 +317,43 @@ public class MenuManager : MonoBehaviour
     public void LoadPreviousPage()
     {
         GridManager.Instance.ChangePage(false);
+    }
+
+    public void TurnOnAR()
+    {
+        vuforiaBehaviour.enabled = true;
+        VuforiaRuntime.Instance.InitVuforia();
+        VuforiaRenderer.Instance.Pause(false);
+
+        for (int i = 0; i < characterImages.Count; i++)
+        {
+            arSprites[i].sprite = characterImages[i].sprite;
+            arSprites[i].color = characterImages[i].color;
+        }
+
+        arSpritehandler.transform.parent.gameObject.SetActive(true);
+        arSpritehandler.skinData = characterSpritehandler.skinData;
+        arSpritehandler.clothesData = characterSpritehandler.clothesData;
+        arSpritehandler.hairData = characterSpritehandler.hairData;
+        arSpritehandler.accessoryData = characterSpritehandler.accessoryData;
+
+        if (onTurnOnAR != null)
+        {
+            onTurnOnAR.Invoke();
+        }
+    }
+
+    public void TurnOffAR()
+    {
+        //VuforiaRuntime.Instance.Deinit();
+        VuforiaRenderer.Instance.Pause(true);
+        //vuforiaBehaviour.enabled = false;
+        arSpritehandler.transform.parent.gameObject.SetActive(false);
+
+        if (onTurnOffAR != null)
+        {
+            onTurnOffAR.Invoke();
+        }
     }
 
     // INPUT CHECK ==============================================================================================================
