@@ -87,7 +87,7 @@ public class AppState_InitCharacterSheet : State
 
     private void SetSubraceSymbol()
     {
-        symbolData.GetSubraceSymbol(currentSubrace.text);
+        currentSubraceSymbol.sprite = symbolData.GetSubraceSymbol(currentSubrace.text);
     }
 
     // Loading Character
