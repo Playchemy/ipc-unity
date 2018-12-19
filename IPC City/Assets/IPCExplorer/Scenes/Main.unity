@@ -6590,6 +6590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f10143ea7a9d544aa41e03148471351, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disablePreLoad: 1
   ignorePlayerPrefs: 0
   ActiveSystemLoadType: 1
   onDemandSystem: {fileID: 609415750}
@@ -6874,7 +6875,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 766331541}
   m_OnClick:
     m_PersistentCalls:
@@ -6999,7 +7000,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 781286174}
   m_OnClick:
     m_PersistentCalls:
@@ -7594,7 +7595,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &847648684
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11465,7 +11466,6 @@ MonoBehaviour:
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/IPCExplorerDatabase.xml
-  mExtendedTracking: 0
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 0.03

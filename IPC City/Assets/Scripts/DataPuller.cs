@@ -64,7 +64,7 @@ public class DataPuller : MonoBehaviour
     private void Start()
     {
         SetPaths();
-        Invoke("InitializeDatabaseLoad", 1f);
+        if(SystemManager.Instance.disablePreLoad == false) Invoke("InitializeDatabaseLoad", 1f);
     }
 
     public void PullFromGoogleDatabase()

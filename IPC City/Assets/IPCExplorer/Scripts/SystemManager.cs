@@ -5,6 +5,7 @@ public class SystemManager : MonoBehaviour
 {
     public static SystemManager Instance;
 
+    public bool disablePreLoad = false;
     public bool ignorePlayerPrefs;
     public SystemLoadType ActiveSystemLoadType;
     public enum SystemLoadType { OnDemand, Cache }
@@ -38,7 +39,7 @@ public class SystemManager : MonoBehaviour
 
         if (PlayerPrefs.HasKey("UpdateMethod"))
         {
-            if(PlayerPrefs.GetInt("UpdateMethod") == 0)
+            if(PlayerPrefs.GetInt("UpdateMethod") == 0 || disablePreLoad)
             {
                 ActiveSystemLoadType = SystemLoadType.OnDemand;
             }
