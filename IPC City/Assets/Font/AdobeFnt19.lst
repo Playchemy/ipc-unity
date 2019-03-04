@@ -1,0 +1,33 @@
+%!Adobe-FontList 1.19
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Minecraft
+FamilyName:Minecraft
+StyleName:Medium
+FullName:Minecraft
+MenuName:Minecraft
+StyleBits:0
+WritingScript:Roman
+OutlineFileName:C:\Users\Playchemy Inc\Desktop\Projects\IPC City\Assets\Font\Minecraft.ttf
+DataFormat:sfntData
+hasSVG:no
+VariableFontType:NonVariableFont
+FileLength:14488
+FileModTime:1535141987
+WeightClass:500
+WidthClass:5
+AngleClass:0
+NameArray:0,Mac,4,Minecraft
+NameArray:0,Win,1,Minecraft
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Invalid
+OutlineFileName:C:\Users\Playchemy Inc\Desktop\Projects\IPC City\Assets\Font\Minecraft.ttf.meta
+FileModTime:1535141987
+%EndFont
+
